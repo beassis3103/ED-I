@@ -11,26 +11,26 @@ public class Main {
         }
        
     }
-    public static boolean estaBalanceado(String expr){
-        Pilha <Character> p = new Pilha <Character>();
-        for(int i = 0; i < expr.length(); i++) {
-            char c = expr.charAt(i);
-            try{
-            if(c == '('){
-                p.push(c);
-            }else if(c == ')'){
-                if (!p.isEmpty()){
-                    p.pop();
-                } else{
-                    return false;
+    public static boolean estaBalanceado(String expressao){
+       Pilha<Character> p = new Pilha<Character>();
+        for (int i = 0; i < expressao.length(); i++) {
+            char c = expressao.charAt(i);
+            try {
+                if (c == '(') {
+                    p.push(c);
                 }
-            }
-            
-                return p.isEmpty();
-            } catch{
-
+                else if (c == ')') {
+                    if (!p.isEmpty()) {
+                        p.pop();
+                    }
+                    else {
+                        return false;
+                    }
+                }
+            } catch (Exception e) {
+                return false;
             }
         }
+        return p.isEmpty();
     }
-}
-                                                                                                        
+}                                                                                                        
